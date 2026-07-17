@@ -3,5 +3,7 @@
 /linux/
 /busybox/
 /root/bin/
+/root/dev/
+/root/proc/
 /newroot/
 
