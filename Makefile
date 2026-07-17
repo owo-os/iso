@@ -9,7 +9,7 @@ owo.iso: newroot newroot/boot/vmlinuz ## create final iso
 	mkisofs -o owo.iso -b isolinux.bin -no-pad -no-emul-boot -boot-load-size 4 -boot-info-table newroot
 
 ramfs.zst: root/bin/busybox ## create initramfs
-	find root -printf "%P\0" | cpio --create --null --format newc -D root | zstd > ramfs.zst
+	find root -printf "%P\0" | cpio --create --null --format newc -D root | zstd -19 > ramfs.zst
 
 newroot/boot/vmlinuz: linux/vmlinux ## install linux to iso root
 	cd linux && make install INSTALL_PATH=../newroot/boot
